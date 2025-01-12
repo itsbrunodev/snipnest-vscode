@@ -1,0 +1,2 @@
+pnpm format-and-lint:fix
+pnpm run update
