@@ -1,0 +1,75 @@
+{
+  "publisher": "itsbrunodev",
+  "name": "snipnest",
+  "displayName": "SnipNest",
+  "version": "1.0.0-rc.1",
+  "private": true,
+  "packageManager": "pnpm@9.15.3",
+  "description": "",
+  "author": "itsbrunodev <contact@itsbruno.dev>",
+  "license": "MIT",
+  "funding": "https://ko-fi.com/brunodev",
+  "homepage": "https://github.com/itsbrunodev/snipnest-vscode#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsbrunodev/snipnest-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/itsbrunodev/snipnest-vscode/issues"
+  },
+  "sponsor": {
+    "url": "https://ko-fi.com/brunodev"
+  },
+  "categories": ["Other"],
+  "main": "./dist/index.js",
+  "icon": "res/icon.png",
+  "files": ["LICENSE.md", "dist/*", "res/*"],
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      {
+        "command": "snipnest.browse",
+        "title": "Browse Collection",
+        "category": "SnipNest"
+      },
+      {
+        "command": "snipnest.search",
+        "title": "Search for Snippets",
+        "category": "SnipNest"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "SnipNest",
+      "properties": {}
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --external vscode",
+    "dev": "pnpm build --watch",
+    "prepare": "pnpm run update",
+    "update": "vscode-ext-gen --output src/generated/meta.ts",
+    "lint": "biome check .",
+    "vscode:prepublish": "pnpm build",
+    "publish": "vsce publish --no-dependencies",
+    "pack": "vsce package --no-dependencies",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/vscode": "^1.96.0",
+    "@vscode/vsce": "^3.2.1",
+    "esno": "^4.8.0",
+    "pnpm": "^9.15.3",
+    "reactive-vscode": "^0.2.9",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8",
+    "vscode-ext-gen": "^0.5.5"
+  }
+}
