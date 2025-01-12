@@ -1,7 +1,5 @@
 import { type QuickPickItem, window } from "vscode";
 
-// import { ref } from "reactive-vscode";
-
 type QuickPickWithCallbackOptions = {
   executeCallbackOnInputChange?: boolean;
 };
@@ -10,13 +8,11 @@ export function quickPickWithCallback<T>(
   placeholder: string,
   callback: (input: string) => Promise<T[]>,
   transformer: (items: T[]) => QuickPickItem[],
-  onSelect: (selectedItem: QuickPickItem /* , results: T[] | null */) => void,
+  onSelect: (selectedItem: QuickPickItem) => void,
   options: QuickPickWithCallbackOptions = {
     executeCallbackOnInputChange: false,
   }
 ) {
-  // const results = ref<T[] | null>(null);
-
   const quickPick = window.createQuickPick();
 
   quickPick.placeholder = placeholder;
@@ -31,20 +27,13 @@ export function quickPickWithCallback<T>(
 
     quickPick.busy = true;
 
-    // console.log(value);
-
     try {
       const callbackResults = await callback(value || "");
-
-      // console.log(callbackResults);
 
       const transformedResults = callbackResults
         ? transformer(callbackResults)
         : [];
 
-      // const callbackResults = await callback(value || "");
-
-      // results.value = callbackResults;
       quickPick.items = transformedResults;
     } catch (error) {
       console.error(error);
@@ -111,5 +100,5 @@ export async function pasteContentAtCursor(
     editBuilder.insert(editor.selection.active, content);
   });
 
-  window.showInformationMessage("Content pasted successfully.");
+  window.showInformationMessage("Snippet pasted successfully.");
 }
