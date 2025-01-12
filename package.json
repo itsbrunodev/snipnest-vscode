@@ -20,14 +20,22 @@
   "sponsor": {
     "url": "https://ko-fi.com/brunodev"
   },
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "main": "./dist/index.js",
   "icon": "res/icon.png",
-  "files": ["LICENSE.md", "dist/*", "res/*"],
+  "files": [
+    "LICENSE.md",
+    "dist/*",
+    "res/*"
+  ],
   "engines": {
     "vscode": "^1.92.0"
   },
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "contributes": {
     "commands": [
       {
@@ -60,6 +68,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/node": "^22.10.5",
     "@types/vscode": "^1.96.0",
     "@vscode/vsce": "^3.2.1",
