@@ -21,3 +21,20 @@ export function toKebabCase(str: string) {
     .replace(/[^A-Za-z0-9]+|_+/g, "-")
     .toLowerCase();
 }
+
+export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
+  callback: T,
+  delay: number
+) {
+  let timer: ReturnType<typeof setTimeout>;
+  return (...args: Parameters<T>) => {
+    const p = new Promise<ReturnType<T>>((resolve) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        const output = callback(...args);
+        resolve(output);
+      }, delay);
+    });
+    return p;
+  };
+}
