@@ -5,7 +5,7 @@
   "version": "0.9.1",
   "private": true,
   "packageManager": "pnpm@9.15.3",
-  "description": "VSCode extension for SnipNest.",
+  "description": "Easily discover and paste code snippets from SnipNest.",
   "author": "itsbrunodev <contact@itsbruno.dev>",
   "license": "MIT",
   "funding": "https://ko-fi.com/brunodev",
