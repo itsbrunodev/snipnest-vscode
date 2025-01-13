@@ -8,6 +8,15 @@ export const browseCommand = "snipnest.browse";
 
 export async function browseCommandHandler() {
   try {
+    const editor = window.activeTextEditor;
+
+    if (!editor) {
+      window.showErrorMessage(
+        "No active editor found. Open a file and try again."
+      );
+      return;
+    }
+
     async function fetchLanguages() {
       const response = await fetch("https://snipnest.dev/api/languages");
       return (await response.json()) as string[];
