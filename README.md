@@ -6,6 +6,10 @@ A Visual Studio Code extension to easily discover and paste code snippets from [
 [![Stars](https://badgen.net/github/stars/itsbrunodev/snipnest?color=orange&label=Stars)](https://github.com/itsbrunodev/snipnest/stargazers)
 [![Issues](https://badgen.net/github/open-issues/itsbrunodev/snipnest?label=Open+Issues)](https://github.com/itsbrunodev/snipnest/issues)
 
+## 🎯 Get Started
+
+[Install the extension from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=itsbrunodev.snipnest)
+
 ## 🔧 Commands
 
 <!-- commands -->
